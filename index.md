@@ -4,11 +4,11 @@
 </head>
 <body>
     <p>hello world!</p>
-    <div name="items"></div>
+    <div id="items"></div>
 </body>
 
 <script type="text/javascript">
-    val items = document.getElementByName("items");
+    val items = document.getElementById("items");
     items.innerHTML ="items";
 </script>>
 </html>
