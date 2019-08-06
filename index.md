@@ -8,7 +8,7 @@
 </body>
 
 <script type="text/javascript">
-    val items = getElementByName("items");
+    val items = document.getElementByName("items");
     items.innerHTML ="items";
 </script>>
 </html>
