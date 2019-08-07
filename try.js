@@ -20,8 +20,12 @@ createMenu();
 
 function RetaliationChest()
 {
-    var t = document.createElement("table");
-    //content.clear();
+    var t;
+    for(var i = content.children.length - 1; i >= 0 ; i--)
+    {
+        content.children[i].remove();
+    }
+    t = document.createElement("table")
     content.appendChild(t);
 
     let loots = BossKeyCommon();
@@ -45,7 +49,3 @@ function BossKeyLegendary()
 {
     return object_base[710].params.results[0].returns;
 }
-// var hw = document.createElement("div");
-// hw.innerHTML ="Hello World!";
-// document.body.appendChild(hw);
-// hw.innerHTML += "<br>" + item_base[11].name;
