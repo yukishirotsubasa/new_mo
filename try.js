@@ -1,6 +1,6 @@
 
 
-var menu = ["RetaliationChest"]
+var menu = ["RetaliationChest"];
 var content = document.createElement("div");
 
 function createMenu()
@@ -25,18 +25,35 @@ function RetaliationChest()
     {
         content.children[i].remove();
     }
-    t = document.createElement("table")
-    content.appendChild(t);
 
-    let loots = BossKeyCommon();
-    for (var i = 0; i < loots.length; i++) {
-        let row = t.insertRow()
-        row.insertCell().innerHTML = loots[i].base_chance
-        row.insertCell().innerHTML = loots[i].level
-        row.insertCell().innerHTML = loots[i].id
-    }
+    content.appendChild(DataToTable(BossKeyLegendary(), ["base_chance", "level", "id"]));
+    content.appendChild(DataToTable(BossKeyRare(), ["base_chance", "level", "id"]));
+    content.appendChild(DataToTable(BossKeyCommon(), ["base_chance", "level", "id"]));
 }
 
+function DataToTable(data, filter)
+{
+    var t = document.createElement("table");
+    for (var i = 0; i < data.length; i++)
+    {
+        let row = t.insertRow();
+        for (var j = 0; j < filter.length; j++)
+        {
+            if (typeof(data[i][filter[j]]) == "undefined")
+            {
+                row.insertCell();
+            }
+            else
+            {
+                row.insertCell().innerHTML = data[i][filter[j]];
+            }
+        }
+    }
+    var div = document.createElement("div");
+    div.setAttribute("class", "content");
+    div.appendChild(t);
+    return div;
+}
 function BossKeyCommon()
 {
     return object_base[708].params.results[0].returns;
