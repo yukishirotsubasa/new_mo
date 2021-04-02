@@ -1,4 +1,4 @@
-const newestVersion = "7557";
+const newestVersion = "7560";
 
 var vl = {
     "6311" : "2019_0214",
